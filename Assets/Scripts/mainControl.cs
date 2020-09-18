@@ -101,13 +101,14 @@ HELP:
    R F ... up, down
    Left Right ... yaw left/right (rotate camera around world y axis)
    Up Down ... pitch up/down (rotate camera around local x axis)
+   shift ...faster camera movement
 
  input data:
    - Status.json (obtain using 'tail -F Status.json | tee trajectory00.json') or tracking.log from SRVTracker app
    - input data must be manually assigned in Unity to existing trajectory (duplicate existing with CTRL-D, drop 
      .json data file from Assets into 'json tracking log file' variable in editor)
-   - TODO: load data & create trajectories automatically (reading all .json files from input directory)
 
+ TODO: load data & create trajectories automatically (reading all .json files from input directory)
  TODO: improve real-time mode (reading & displaying data on-fly from Status.json)
  TODO: creation of route (coords entered, get points from existing trajectory), navigation in real-time mode using this
  TODO: allow modification of waypoint distances ('i', 'o' keys)
@@ -118,7 +119,7 @@ HELP:
 			EditorGUITools.DrawRect(new Rect (370, Screen.height -34, Screen.width -240-190, 26), Color.grey);
 			EditorGUITools.DrawRect(new Rect (372, Screen.height -32, Screen.width -244-190, 22), new Color(0.1f, 0.1f, 0.1f));
 			GUI.Label(new Rect(384, Screen.height-54, Screen.width-30, Screen.height-20), @"
- EliteStatusVisualizer v1.0 (https://github.com/cratercamper/elitestatusvisualizer)
+ Elite-Trajectory      v1.0 (https://github.com/cratercamper/elite-trajectory)
 ");
 
 		}
