@@ -134,6 +134,7 @@ public class trajectory : MonoBehaviour
 				myLine.transform.position = start;
 				myLine.AddComponent<LineRenderer>();
 				LineRenderer lr = myLine.GetComponent<LineRenderer>();
+				lr.sortingOrder = 1;
 				lr.material = new Material(Shader.Find("Sprites/Default"));
 	//             lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
 				lr.startColor=color;
