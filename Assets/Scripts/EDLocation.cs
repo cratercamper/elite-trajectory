@@ -7,15 +7,16 @@ using System.Globalization;
 
 namespace EDTracking
 {
+	[Serializable]
     public class EDLocation
     {
-        public double Latitude { get; set; } = 0;
-        public double Longitude { get; set; } = 0;
-        public double Altitude { get; set; } = 0;
-        public double PlanetaryRadius { get; set; } = 0;
-        public string Name { get; set; } = "";
-        public string PlanetName { get; set; } = "";
-        public string SystemName { get; set; } = "";
+        public double Latitude = 0;
+        public double Longitude = 0;
+        public double Altitude = 0;
+        public double PlanetaryRadius = 0;
+        public string Name = "";
+        public string PlanetName = "";
+        public string SystemName = "";
         public static double DefaultPlanetaryRadius = 0;
 
         public EDLocation()

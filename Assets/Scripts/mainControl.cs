@@ -4,22 +4,20 @@ using UnityEngine;
 
 using EDTracking;
 
-public static class EditorGUITools
-{
+// drawing rectangles
+public static class EditorGUITools {
 
     private static readonly Texture2D backgroundTexture = Texture2D.whiteTexture;
     private static readonly GUIStyle textureStyle = new GUIStyle {normal = new GUIStyleState { background = backgroundTexture } };
 
-    public static void DrawRect(Rect position, Color color, GUIContent content = null)
-    {
+    public static void DrawRect(Rect position, Color color, GUIContent content = null) {
         var backgroundColor = GUI.backgroundColor;
         GUI.backgroundColor = color;
         GUI.Box(position, content ?? GUIContent.none, textureStyle);
         GUI.backgroundColor = backgroundColor;
     }
 
-    public static void LayoutBox(Color color, GUIContent content = null)
-    {
+    public static void LayoutBox(Color color, GUIContent content = null) {
         var backgroundColor = GUI.backgroundColor;
         GUI.backgroundColor = color;
         GUILayout.Box(content ?? GUIContent.none, textureStyle);
@@ -27,54 +25,132 @@ public static class EditorGUITools
     }
 }
 
-public class mainControl : MonoBehaviour
-{
+public class mainControl : MonoBehaviour {
 
-	static public bool isHelpDisplayed = false;
-	static public EDLocation targetLocation=null;
-	static public EDLocation startLocation =null;
+	Screenshot ss;
+	bool timeFlies = true;
+
+	public GameObject trajectoryPrefabObject;
+
+	[Range(1, 10000)]
+	public int lineTailLength=200;
+	public bool isTailSeconds=true;
+
+	//global time -  shared among all trajectories, max value automatically set from the longest trajectory
+	float timeNow=0.0f;
+	[Range(0.0f, 1.0f)] public float timeNowGlobal=0.0f;
+	[ReadOnly] public string timeNowHuman="--:--:--";
+	[ReadOnly] public float timeNowSeconds=0.0f;
+
+	[ReadOnly] public float nextCapture=0.0f;
+	public float nextCapturePeriodSimSeconds=10.0f;
+	public bool isScreenshot = false;
+	public bool isScreenshotNoGui = false;
+	public string midFixOfScreenshotName = "";
+
+	//time in trajectory (automatically shared among all trajectories)
+	static public float timeIncrement = 0.002f;
+	public float timeIncrementGlobal = 0.002f;
+	public bool isPlayingRealTime = true;
+	public bool isReversedTime = false;
+
+	public static mainControl instance {get ; private set;} = null;
+
 	static int backgroundPlaneIndex=1;
 
-	public int kmPerWaypoint = 20;
-	[ReadOnly] public static EDRoute route;
+	EDRoute routeAuto;
 
-	[ReadOnly] static public double planetRadius=2161194.25;
-	
-    // Start is called before the first frame update
-    void Start()
-    {
-		//EDLocation loc = new EDLocation (72.475555f,17.662354f,0.0f, 2320216.0f);
-		targetLocation = new EDLocation (-48.947948, -144.128311, 0.0, 2161194.25); // Djambe ABC 1 - Crown Depot
-		startLocation =  new EDLocation (-47.342247, -133.257202, 0.0, 2161194.25); // Djambe ABC 1 - Plexico Colony
-
-		double distanceKm = 0.001 * EDLocation.DistanceBetween(targetLocation, startLocation);
-
-		int howManyWaypoints = (int) (distanceKm / (int) kmPerWaypoint);
+	bool isHelpDisplayed = false;
+	public bool isFollow = false;
+	public bool isFollowWithInertia = false;
+	public bool isFollowCurrent = false;
+	GameObject followObject;
+	Vector3 lastFollowPosition;
+	Vector3 lastFollowVelocity;
+	Vector3 lastFollowWantedPosition;
+	Vector3 lastFollowCameraPosition;
+//	float followVelocityChange = 0.1f;
+	float lastDistanceToFollowWantedPosition = 1.0f;
 
 
-		List<EDWaypoint> listRouteWaypoints = new List<EDWaypoint>();
-		//create waypoints - all located in target, with decreasing radii (we will track who first enters 250 km radius from target, 225 km, 200 km, ...)
-		for (int i = 0; i <= howManyWaypoints; i++) {
-			double distanceToTarget = ((howManyWaypoints-i)*kmPerWaypoint);//-1 ...we don't want to have first short wp & we want the last wp to be 0 km radius
-			if (distanceToTarget < 0.1) {distanceToTarget = 0.1;} //last waypoint will be triggered when 100 m from target
-			EDWaypoint wp = new EDWaypoint(targetLocation);
-			wp.Radius = 1000.0*distanceToTarget;
-//			MonoBehaviour.print("Waypoint no. "+i+" dist:"+distanceToTarget+" km"); 
+	public bool isStatusFileEnabled = true;
+//	public bool isStatusFileUseEvents = true;
+	public string statusFile = "";
+	public bool isSaveToFile = true;
+	public string statusFileMyCopy="";
 
-			listRouteWaypoints.Add(wp);
+	StatusFileReader statusFileReader;
+	private bool isStatusFileReadingRunning = false;
+
+	[ReadOnly] public Route activeRoute;
+
+
+
+
+	public mainControl() {
+		if (instance != null) return;
+		instance = this;
+	}
+
+	void Awake() {
+		ss = (Screenshot) FindObjectOfType(typeof(Screenshot));
+	}
+
+	Trajectory statusTrajectory;
+	void Start() {
+		statusFileReader = new StatusFileReader();
+
+		if (isStatusFileEnabled) {
+			if (statusTrajectory == null) {
+				GameObject o;
+				o = Instantiate(trajectoryPrefabObject, new Vector3(0,0,0), Quaternion.Euler(0, 0, 0)); 
+				statusTrajectory = (Trajectory) o.GetComponent<Trajectory>();
+				statusTrajectory.transform.parent = activeRoute.transform;
+
+				Debug.Log("created trajectory:"+statusTrajectory);
+
+			}
 		}
+	}
 
-		
-	//	EDRoute route = new EDRoute("race3");
-		route = new EDRoute("race3", listRouteWaypoints);
-		//MonoBehaviour.print("route:"+route.ToString() + " wp count:"+listRouteWaypoints.Count);
-		MonoBehaviour.print("route:"+route.ToString() + " wp count:"+listRouteWaypoints.Count);
 
-    }
+	public void addDataToStatusTrajectory(string json) {
+		statusTrajectory.addData(json);
+	}
+
 
 	void OnGUI() {
+		if (isScreenshot) {
+			if (getTimeNowSec() > nextCapture) {
+				nextCapture += nextCapturePeriodSimSeconds;
+				if (nextCapture < getTimeNowSec()) nextCapture = getTimeNowSec();
+
+				if (isScreenshotNoGui) {
+					ss.captureScreenshot((""+System.Math.Round(getTimeNowSec(),0)+"_").PadLeft(6,'0')+ midFixOfScreenshotName);
+				} else {
+					ScreenCapture.CaptureScreenshot("screenshots/"+( (System.Math.Round(getTimeNowSec(),0)+"_").PadLeft(6,'0') )+ midFixOfScreenshotName +".png");
+				}
+//				Debug.Log("ss T:"+getTimeNowSec());
+			}
+		} else {
+			nextCapture = 0.0f; // allow going back in time & capturing the same time again
+		}
+
+
+		if (isStatusFileEnabled) {
+			if (!isStatusFileReadingRunning) {
+//				startTracking();
+				isStatusFileReadingRunning = true;
+			}
+		} else {
+			if (isStatusFileReadingRunning) {
+//				stopTracking();
+				isStatusFileReadingRunning = false;
+			}
+		}
+
 		if (canvasHelp.activeSelf) {
-			MonoBehaviour.print("HELP:"+mainControl.isHelpDisplayed);
+			//MonoBehaviour.print("HELP:"+mainControl.isHelpDisplayed);
 
 			GUI.skin.font = (Font) Resources.Load("monoMMM_5");
 
@@ -85,7 +161,7 @@ public class mainControl : MonoBehaviour
 HELP:
 
  program:
-   F5 q ... quit, quit
+   F5 ... quit; also 'Q'
 
  display:
    F1 ... show this help
@@ -94,17 +170,20 @@ HELP:
 
  replay:
    + - ... speed up, slow down ('time Increment Global' variable in editor - trajectory object)
-   space ... (un)freeze time
+   Space ... (un)freeze time
+   B ... reverse time
+   K ... screenshot 1920x1080; V (hold) ...multiple screenshots (same as 'K') until key release
 
  camera control:
    W A S D ... forward, left, backward, right
    R F ... up, down
    Left Right ... yaw left/right (rotate camera around world y axis)
    Up Down ... pitch up/down (rotate camera around local x axis)
-   shift ...faster camera movement
+   Shift ... faster camera movement
+   G ... toggle follow leader
 
  input data:
-   - Status.json (obtain using 'tail -F Status.json | tee trajectory00.json') or tracking.log from SRVTracker app
+   - Status.json (obtain using 'tail -F Status.json | tee -a trajectory00.json') or tracking.log from SRVTracker app
    - input data must be manually assigned in Unity to existing trajectory (duplicate existing with CTRL-D, drop 
      .json data file from Assets into 'json tracking log file' variable in editor)
 
@@ -131,40 +210,232 @@ HELP:
 		canvasHelp.SetActive(show);
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-		if (Input.GetKey(KeyCode.F1)) {
-			mainControl.isHelpDisplayed = true;
-		} else {
-			mainControl.isHelpDisplayed = false;
+
+	public float getTimeNow() {
+		return timeNow;
+	}
+
+	public float getTimeNowSec() {
+		return timeNowSeconds;
+	}
+
+	public string getTimeHuman(float timeNowSeconds) {
+		System.TimeSpan time = System.TimeSpan.FromSeconds(timeNowSeconds);
+		return time.ToString(@"hh\:mm\:ss");
+	}
+
+
+	void OnValidate() {
+		// change static trajectory variables for timeNow & timeIncrement (change in any of the trajectories in editor changes it for all)
+		if (timeNow != timeNowGlobal) {
+			timeNow = timeNowGlobal;
+
+			trajectoryLongest.updateMeForTheSakeOfGlobalTime();
+			timeNowSeconds = trajectoryLongest.getTimeNowSec();
+			timeNowHuman = getTimeHuman(timeNowSeconds);
 		}
 
-		if (Input.GetKey(KeyCode.F3)) {
-			GameObject backgrounds = GameObject.Find("Backgrounds");
-			int index=1;
-			foreach (Transform child in backgrounds.transform)
-			{
-				//backgroundPlaneIndex 0 means all background objects will be switched off
-				if (index == mainControl.backgroundPlaneIndex) {
-					child.gameObject.SetActive(true);
-				} else {
-					child.gameObject.SetActive(false);
-				}
+		if (timeIncrement != timeIncrementGlobal) {
+			timeIncrement = timeIncrementGlobal;
+			isPlayingRealTime = false;
+		}
 
-				index++;
+		if (isFollow && isFollowCurrent) isStatusFileEnabled = true;
+	}
+
+	Trajectory trajectoryLongest = null;
+	float timeNextStatusFilePoll = 0.0f;
+	float timeNextStatusFilePollDelta = 0.7f;
+
+	void pollStatusFile() {
+		if (isFollowCurrent) {
+			if (Time.time > timeNextStatusFilePoll) {
+				timeNextStatusFilePoll = Time.time + timeNextStatusFilePollDelta;
+
+				string newData = statusFileReader.ProcessStatusFileUpdate(statusFile);
+//				Debug.Log("newData:"+newData);
+				if (!System.String.IsNullOrEmpty(newData)) {
+					addDataToStatusTrajectory(newData);
+				}
+			}
+		}
+	}
+
+    // Update is called once per frame
+    void Update() {
+
+		pollStatusFile();
+
+		if (trajectoryLongest == null) {
+			Trajectory[] tt = activeRoute.GetComponentsInChildren<Trajectory>();
+			foreach (Trajectory t in tt) {
+				if ( (trajectoryLongest == null) || (t.getIndicatorCount() > trajectoryLongest.getIndicatorCount()) ) {
+					trajectoryLongest = t;
+				}
+			}
+		}
+
+		//check input
+		if (Input.GetKeyDown("space")) { timeFlies = !timeFlies; }
+		if (Input.GetKeyDown("[+]")) { timeIncrement *= 1.2f; timeIncrementGlobal = timeIncrement;    isPlayingRealTime = false;}
+		if (Input.GetKeyDown("[-]")) { timeIncrement *= 1/1.2f; timeIncrementGlobal = timeIncrement;  isPlayingRealTime = false;}
+
+		//update time
+		if (timeFlies) {
+			if (isPlayingRealTime) {
+				int indexNow = trajectoryLongest.indexNow;
+				if (indexNow > 0) {
+					timeIncrement = (indexNow / trajectoryLongest.getTimeNowSec() ) / trajectoryLongest.getTimeEndSec();
+					timeIncrementGlobal = timeIncrement;
+					//Debug.Log("time relative s:"+ trajectoryLongest.getTimeNowSec() +" indexNow:"+indexNow +" timeIncrement"+timeIncrement + " Time.deltaTime"+Time.deltaTime);
+				}
+			}
+
+			if (!isReversedTime) {
+				timeNow += timeIncrement * Time.deltaTime;
+			} else {
+				timeNow -= timeIncrement * Time.deltaTime;
+			}
+			if (timeNow > 1.0f) timeNow = 0f;
+			if (timeNow < 0.0f) timeNow = 0f;
+
+			timeNowGlobal = timeNow;
+			timeNowSeconds = trajectoryLongest.getTimeNowSec();
+			timeNowHuman = getTimeHuman(timeNowSeconds);
+		}
+
+
+		if (Input.GetKey(KeyCode.F1)) {
+			mainControl.instance.isHelpDisplayed = true;
+		} else {
+			mainControl.instance.isHelpDisplayed = false;
+		}
+
+		if (Input.GetKeyDown(KeyCode.F3)) {
+			//cycle backgrounds - children of Backgrounds object - which is child of activeRoute
+			Transform backgroundContainerT = activeRoute.transform.Find("Backgrounds");
+			int index=1;
+			if (backgroundContainerT != null) {
+				GameObject backgroundContainer = backgroundContainerT.gameObject;
+				foreach (Transform child in backgroundContainer.transform) {
+					//backgroundPlaneIndex 0 means all background objects will be switched off
+					if (index == mainControl.backgroundPlaneIndex) {
+						child.gameObject.SetActive(true);
+					} else {
+						child.gameObject.SetActive(false);
+					}
+					index++;
+				}
 			}
 
 			mainControl.backgroundPlaneIndex = (mainControl.backgroundPlaneIndex+1) % index;
-			MonoBehaviour.print("backgrounds count: "+(index-1)+" next:"+mainControl.backgroundPlaneIndex);
+			MonoBehaviour.print("backgrounds count: "+(index-1)+" next:"+mainControl.backgroundPlaneIndex); //TODO: status bar info
 		}
 
-		showHelp(mainControl.isHelpDisplayed);
-		
+		showHelp(mainControl.instance.isHelpDisplayed);
     }
 
 
-	static public EDLocation getTargetLocation() {
-		return targetLocation;
+//	static public EDLocation getTargetLocation() {
+//		return instance.targetLocation;
+//	}
+
+//	public static EDRoute getRoute() {
+//		return instance.route;
+//	}
+
+
+	void LateUpdate() {
+
+		if (Input.GetKey("b")) {
+			isReversedTime=true;
+		} else { 
+			isReversedTime=false;
+		}
+
+		if (Input.GetKeyDown("g")) {
+			isFollow = !isFollow;
+			if (followObject == null) {
+				Debug.Log("WARN: followObject == null. Nothing to follow");
+				isFollow = false;
+			}
+
+			// set initial position
+			// TODO: set initial rotation to see 2nd contender? (or other key to switch views?)
+			if (isFollow) {
+				//Camera.main.transform.position =followObject.transform.localPosition+ followObject.transform.position - (Camera.main.transform.forward * 10.0f);
+				Camera.main.transform.position = followObject.transform.position - (Camera.main.transform.forward * 5.0f);
+				lastFollowWantedPosition = Camera.main.transform.position;
+				lastFollowCameraPosition = Camera.main.transform.position;
+				lastFollowPosition = followObject.transform.position;
+			}
+		}
+
+		if (isFollow) {
+
+			if (isFollowCurrent) {
+				followObject = statusTrajectory.srv;
+			} else {
+				followObject = Trajectory.followLeaderObject;
+			}
+
+			if (lastFollowPosition == null) lastFollowPosition = followObject.transform.position;
+			if (followObject != null) {
+
+			//new wanted position of camera is last wanted position plus shift of the followed object
+			Vector3 objectDeltaPosition = ( followObject.transform.position - lastFollowPosition );
+			Vector3 cameraDeltaPosition = ( Camera.main.transform.position - lastFollowCameraPosition );
+			Vector3 wantedPosition = lastFollowWantedPosition +  objectDeltaPosition + cameraDeltaPosition;
+			lastFollowPosition = followObject.transform.position;
+
+			float coef;
+
+			if (10.0f *lastFollowVelocity.magnitude > 1.0f) {
+				coef = Time.deltaTime * 3.0f * System.Math.Min(100.0f, System.Math.Max(0.0000001f, 100.0f * lastFollowVelocity.magnitude * lastFollowVelocity.magnitude) );
+			} else {
+				coef = Time.deltaTime * 3.0f * System.Math.Min(100.0f, System.Math.Max(0.0000001f, 10.0f * lastFollowVelocity.magnitude) );
+			}
+
+
+			float distanceToFollowWantedPosition = (lastFollowWantedPosition - Camera.main.transform.position).magnitude;
+			if (distanceToFollowWantedPosition < 1.0f * lastDistanceToFollowWantedPosition) {
+				coef = coef / 100.0f;
+//				Debug.Log("SLOW  dist:"+distanceToFollowWantedPosition + " last dist:"+lastDistanceToFollowWantedPosition);
+			}
+
+			if (!isFollowWithInertia) {
+				coef = 1.0f;
+			}
+			lastDistanceToFollowWantedPosition = distanceToFollowWantedPosition;
+
+			coef = System.Math.Min(1.0f, coef);
+//			if ((lastFollowVelocity.magnitude > 0.0001f) && (lastFollowVelocity.magnitude < 2.0f)) {
+//				coef = coef * lastFollowVelocity.magnitude;
+//			};
+//			coef = coef * coef;
+			lastFollowVelocity = (1.0f - coef) * lastFollowVelocity + coef * (lastFollowWantedPosition - Camera.main.transform.position);
+
+//			Debug.Log("------------------------------------------------");
+//			Debug.Log("coef:"+coef);
+//			Debug.Log("lastFollowVelocity.magnitude:"+lastFollowVelocity.magnitude);
+//			Debug.Log("lastFollowVelocity.magnitude ^2:"+lastFollowVelocity.magnitude*lastFollowVelocity.magnitude);
+//			Debug.Log("objectDeltaPosition:"+objectDeltaPosition);
+//			Debug.Log("cameraDeltaPosition:"+cameraDeltaPosition);
+//			Debug.Log("wantedPosition:"+wantedPosition);
+//			Debug.Log("lastFollowPosition:"+lastFollowPosition);
+//			Debug.Log("lastFollowVelocity:"+lastFollowVelocity);
+//			Debug.Log("cam pos 0:"+Camera.main.transform.position );
+			Camera.main.transform.position = Camera.main.transform.position + 3.0f * Time.deltaTime * lastFollowVelocity;
+//			Debug.Log("cam pos 1:"+Camera.main.transform.position );
+
+			lastFollowWantedPosition = wantedPosition;
+			lastFollowCameraPosition = Camera.main.transform.position;
+			}
+		}
+	}
+
+	void OnApplicationQuit() {
+		timeIncrementGlobal = 0.002f; 
+		timeIncrement = 0.002f; //avoids switching off 'isPlayingRealTime' bool on app quit (OnValidate() is executed when going back to editor)
 	}
 }

@@ -1,0 +1,28 @@
+{"Name":"Hyldeptu Rally",
+
+"Waypoints":[
+
+{"Location":{"Latitude":-9.68004,"Longitude":98.18177,"Altitude":11,"PlanetaryRadius":1800741.375,"Name":"Start - Flynn - Start","PlanetName":"","SystemName":""}, 
+			"Radius":100000,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"Start - Flynn - Start"},
+
+{"Location":{"Latitude":-10.021191,"Longitude":97.635154999999997,"Altitude":0,"PlanetaryRadius":1800741.375,"Name":"L1 - Lab - Backside 1 f","PlanetName":"","SystemName":""}, 
+			"Radius":10000,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"L1 - Lab - Backside 1"},
+{"Location":{"Latitude":-10.021191,"Longitude":97.635154999999997,"Altitude":0,"PlanetaryRadius":1800741.375,"Name":"L1 - Lab - Backside 1","PlanetName":"","SystemName":""}, 
+			"Radius":200,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"L1 - Lab - Backside 1"},
+
+{"Location":{"Latitude":-9.6803709999999992,"Longitude":98.182648,"Altitude":0,"PlanetaryRadius":1800741.375,"Name":"L2 - Flynn - Turn f","PlanetName":"","SystemName":""}, 
+			"Radius":10000,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"L2 - Flynn - Turn f"},
+{"Location":{"Latitude":-9.6803709999999992,"Longitude":98.182648,"Altitude":0,"PlanetaryRadius":1800741.375,"Name":"L2 - Flynn - Turn","PlanetName":"","SystemName":""}, 
+			"Radius":30,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"L2 - Flynn - Turn"},
+
+{"Location":{"Latitude":-10.021660000000001,"Longitude":97.635475,"Altitude":0,"PlanetaryRadius":1800741.375,"Name":"L2 - Lab - Backside 1 f","PlanetName":"","SystemName":""}, 
+			"Radius":10000,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"L2 - Lab - Backside 1 f"},
+{"Location":{"Latitude":-10.021660000000001,"Longitude":97.635475,"Altitude":0,"PlanetaryRadius":1800741.375,"Name":"L2 - Lab - Backside 1","PlanetName":"","SystemName":""}, 
+			"Radius":200,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"L2 - Lab - Backside 1"},
+
+{"Location":{"Latitude":-9.6803699999999999,"Longitude":98.182602000000003,"Altitude":26,"PlanetaryRadius":1800741.375,"Name":"Finish - Flynn f","PlanetName":"","SystemName":""}, 
+			"Radius":10000,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"Finish - Flynn f"},
+{"Location":{"Latitude":-9.6803699999999999,"Longitude":98.182602000000003,"Altitude":26,"PlanetaryRadius":1800741.375,"Name":"Finish - Flynn","PlanetName":"","SystemName":""}, 
+			"Radius":30,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"Finish - Flynn"}
+
+]}
