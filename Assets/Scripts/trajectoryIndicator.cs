@@ -23,7 +23,7 @@ public class trajectoryIndicator {
 	Color lineEndColorOrig;
 	float lineBrightness = 1.0f;
 
-	float brightnessDim = 0.2f;
+	float brightnessDim = 0.3f;
 	float brightnessBright = 1.0f;
 	float dimFactor = 1.0f; //used to completely fade out the line (e.g. after death)
 
@@ -42,6 +42,12 @@ public class trajectoryIndicator {
 		GameObject point = Object.Instantiate(indicatorPointObject, pos, Quaternion.Euler(0, dp.Heading, 0));
 		point.transform.SetParent(pointContainer.transform);
 
+
+		Vector3 previousDir = pos - previous;
+//		Debug.Log("previousDir:"+previousDir);
+		point.transform.position += new Vector3(0,-0.1f -dp.Altitude*0.0045f,0);
+		point.transform.LookAt(previousDir+point.transform.position);
+
 		this.dp = dp;
 		this.point = point;
 		this.line = makeLine(previous, pos, color, lineContainer, lineWidth);
@@ -51,6 +57,7 @@ public class trajectoryIndicator {
 		lineEndColorOrig   = lr.endColor;
 
 		pointScaleOrig = point.transform.localScale;
+//FIXME		
 		point.SetActive(false);
 
 		if (timeEnd < dp.TimeSinceStart) {
@@ -64,7 +71,7 @@ public class trajectoryIndicator {
 	}
 
 	public bool isHigh() {
-		if (dp.Altitude > 1000.0f) return true;
+		if (dp.Altitude > 5000.0f) return true;
 		return false;
 	}
 
@@ -96,7 +103,7 @@ public class trajectoryIndicator {
 		float start = 0.0f;
 		if (fromIndicator != null) {start = fromIndicator.dp.TimeSinceStart;}
 
-		System.TimeSpan time = System.TimeSpan.FromSeconds(137 + this.dp.TimeSinceStart - start); //FIXME: HACK: 137 shouldn't be there
+		System.TimeSpan time = System.TimeSpan.FromSeconds(this.dp.TimeSinceStart - start); 
 		return trajectoryIndicator.spanToMinSec(time);
 	}
 
@@ -106,7 +113,7 @@ public class trajectoryIndicator {
 
 	static public Vector3 positionNow(trajectoryIndicator indicator) {
 		//FIXME: iterate instead remember & require bump (+ cache with set time)
-		return new Vector3(indicator.dp.Latitude, indicator.dp.Altitude, indicator.dp.Longitude);
+		return new Vector3(indicator.dp.Latitude, (float) indicator.dp.TerrainHeight + indicator.dp.Altitude, indicator.dp.Longitude);
 	}
 
 	static public int headingNow(trajectoryIndicator indicator) {
@@ -117,7 +124,7 @@ public class trajectoryIndicator {
 	void setInPast() {
 		lineBrightness = brightnessBright;
 		setLineBrightness();
-		point.transform.localScale = pointScaleOrig;
+//FIXME:		point.transform.localScale = pointScaleOrig;
 	}
 
 	void setInFuture(bool bright=false) {
@@ -127,7 +134,7 @@ public class trajectoryIndicator {
 			lineBrightness = brightnessDim;
 		}
 		setLineBrightness();
-		point.transform.localScale = pointScaleOrig / 4f;
+//FIXME:		point.transform.localScale = pointScaleOrig / 4f;
 	}
 
 	void setLineBrightness() {

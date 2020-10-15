@@ -1,0 +1,4 @@
+{"Name":"Skinfaxi Rally","Waypoints":[{"Location":{"Latitude":-64.005523999999994,"Longitude":-85.805121999999997,"Altitude":4,"PlanetaryRadius":2532647,"Name":"Selberg Escape","PlanetName":"","SystemName":""},
+"Radius":500,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"Selberg Escape"},
+{"Location":{"Latitude":-65.284774999999996,"Longitude":-89.615241999999995,"Altitude":0,"PlanetaryRadius":2532647,"Name":"Cousteau Barracks","PlanetName":"","SystemName":""},
+"Radius":3000,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"Cousteau Barracks"}]}

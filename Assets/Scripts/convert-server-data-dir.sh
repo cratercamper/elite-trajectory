@@ -20,13 +20,17 @@ function convert_dir {
 	echo -e "\n\n==== Converting:$1 ====================="
 	#convert names - spaces to _ and .json suffix
 	for f in *.Tracking *.StartRequest *.Summary ; do
-		filename="${f%.*}"    # remove 'Tracking' suffix
+		filename="${f%.*}"    # remove 'Tracking' suffix #FIXME: not working?!
 		filename=$f
 		filename_nospace=${filename// /_}
 		filename_nospace_json=$filename_nospace".json"
 		echo "F:${filename_nospace_json}"
 
 		mv -v "$f" $filename_nospace_json
+
+		#PlanetaryRadius to PlanetRadius
+		sed -i 's/PlanetaryRadius/PlanetRadius/' $filename_nospace_json
+
 	done
 
 

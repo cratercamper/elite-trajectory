@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.IO;
-using EDTracking;
+//using EDTracking;
 
-using UnityEngine;
+//using UnityEngine;
 
-public class StatusFileReader
-{
+public class StatusFileReader {
+
 //	const string ClientIdFile = "client.id";
 //	private string _lastUpdateTime = "";
 	private FileStream _statusFileStream = null;
@@ -27,18 +27,11 @@ public class StatusFileReader
 //	public static int CurrentHeading { get; private set; } = -1;
 //	public static double SpeedInMS { get; internal set; } = 0;
 
-	private System.IO.FileSystemWatcher statusFileWatcher;
+//	private System.IO.FileSystemWatcher statusFileWatcher;
 
 
-	public StatusFileReader()  {
-
-//		this.statusFileWatcher = new System.IO.FileSystemWatcher();
-
-//		_statusTimer = new System.Timers.Timer(700);
-//		_statusTimer.Stop();
-//		_statusTimer.Elapsed += _statusTimer_Elapsed;
-
-//		statusFileWatcher.Changed += new System.IO.FileSystemEventHandler(this.statusFileWatcher_Changed);
+	public StatusFileReader(string statusFile)  {
+		this._statusFile = statusFile;
 	}
 
 	private void _statusTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e) {
@@ -49,23 +42,15 @@ public class StatusFileReader
 
 //		if ( (lastWriteTime != _lastFileWrite) || (DateTime.Now.Subtract(_lastStatusRead).TotalSeconds>5) ) {
 		if ( lastWriteTime != _lastFileWrite ) {
-			ProcessStatusFileUpdate(_statusFile);
+			ProcessStatusFileUpdate();
 			_lastFileWrite = lastWriteTime;
 			_lastStatusRead = DateTime.Now;
 		}
 		_statusTimer.Start();
 	}
 
-
-	private void statusFileWatcher_Changed(object sender, System.IO.FileSystemEventArgs e) {
-		if (e.FullPath.ToLower().EndsWith("status.json")) {
-			// Create a task to process the status (we return as quickly as possible from the event procedure
-			Task.Factory.StartNew(() => ProcessStatusFileUpdate(e.FullPath));
-		}
-	}
-
-
-	public string ProcessStatusFileUpdate(string statusFile) {
+	public string ProcessStatusFileUpdate(bool isSaveToFile=false, string statusFileMyCopy="") {
+//		Debug.Log("_statusFile:"+_statusFile);
 		DateTime lastWriteTime = File.GetLastWriteTime(_statusFile);
 
 		if ( lastWriteTime == _lastFileWrite ) {
@@ -81,7 +66,7 @@ public class StatusFileReader
 		{
 			// Read the file - we open in file share mode as E: D will be constantly writing to this file
 			if (_statusFileStream == null ) {
-				_statusFileStream = new FileStream(statusFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+				_statusFileStream = new FileStream(_statusFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 			}
 
 			_statusFileStream.Seek(0, SeekOrigin.Begin);
@@ -89,14 +74,14 @@ public class StatusFileReader
 			using (StreamReader sr = new StreamReader(_statusFileStream, Encoding.Default, true, 1000, true))
 				status = sr.ReadToEnd();
 
-			if ( (File.Exists(statusFile)) || (!_statusFileStream.CanSeek) ) {
+			if ( (!File.Exists(_statusFile)) || (!_statusFileStream.CanSeek) ) {
 				// We only close the file if we can't seek (no point in continuously reopening)
 				_statusFileStream.Close();
 				_statusFileStream = null;
 			}
 		}
 		catch  {
-			Debug.Log("WARN: Failed to create status file stream. status file:"+statusFile);
+			System.Diagnostics.Debug.WriteLine("WARN: Failed to create status file stream. status file:"+_statusFile);
 		}
 
 
@@ -118,12 +103,12 @@ public class StatusFileReader
 
 		try
 		{
-			if (mainControl.instance.isSaveToFile)
-				File.AppendAllText(mainControl.instance.statusFileMyCopy, status);
+			if (isSaveToFile)
+				File.AppendAllText(statusFileMyCopy, status);
 		}
 		catch (Exception ex)
 		{
-			MonoBehaviour.print($"ERROR: Failed to save to local log file: {ex.Message}");
+			System.Diagnostics.Debug.WriteLine($"ERROR: Failed to save to local log file: {ex.Message}");
 //			Action action = new Action(() => { checkBoxSaveToFile.Checked = false; });
 //			if (checkBoxSaveToFile.InvokeRequired)
 //				checkBoxSaveToFile.Invoke(action);

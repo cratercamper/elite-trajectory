@@ -16,6 +16,7 @@ public class TrajectoryData {
 	public string cmdr="default cmdr name";
 	public string planet;
 	public float planetRadius=0;
+	public double terrainHeight=System.Double.MinValue;
 	System.DateTime timeItStarted=System.DateTime.MaxValue;
 	
 /* from this we parse dataPoint (structure was weird to deserialize it simply):
@@ -38,7 +39,10 @@ public class TrajectoryData {
  "Altitude":0,
  "BodyName":"Brokpoi 1 a",
  "PlanetRadius":2320216.000000 }
+
+"TerrainHeight":3000
 */
+
 
 	public struct dataPoint {
 /*
@@ -60,7 +64,8 @@ public class TrajectoryData {
 			Longitude = float.Parse(vars[1]);
 			Altitude = int.Parse(vars[2]);
 			Heading = int.Parse(vars[3]);
-			TimeStamp = System.DateTime.Parse(vars[4].Replace("\"", ""), null, System.Globalization.DateTimeStyles.RoundtripKind);
+			TerrainHeight = double.Parse(vars[4]);
+			TimeStamp = System.DateTime.Parse(vars[5].Replace("\"", ""), null, System.Globalization.DateTimeStyles.RoundtripKind);
 			// TimeSinceStart // - not parsed
 
 			if (timeItStarted <= TimeStamp) {
@@ -75,18 +80,19 @@ public class TrajectoryData {
 			TimeSinceStart = (float) (TimeStamp - timeItStarted).TotalSeconds; //time in seconds since start (start should be (is) synchronized for all trajectories) 
 
 
-			
 		}
 
 		public float Latitude { get; }
 		public float Longitude { get; }
 		public int Altitude { get; }
 		public int Heading { get; }
+		public double TerrainHeight { get; }
 		public System.DateTime TimeStamp { get; }
 		public float TimeSinceStart { get; }
 
+
 		public override string ToString() {
-			return "" + TimeSinceStart + " s:  " + " lat:" + Latitude + " lon:" + Longitude + "alt:" + Altitude + " head:" + Heading + "  (T iso: " + TimeStamp.ToString("o") + ")";
+			return "" + TimeSinceStart + " s:  " + " lat:" + Latitude + " lon:" + Longitude + "alt:" + Altitude + " head:" + Heading + " terrainH:"+TerrainHeight+ "  (T iso: " + TimeStamp.ToString("o") + ")";
 		}
 	}
 
@@ -94,13 +100,14 @@ public class TrajectoryData {
 	public List<TrajectoryData.dataPoint> data;
 
 	public TrajectoryData(TextAsset json) {
+		Debug.Log("TrajectoryData()");
 		this.json = json;
 		this.data = new List<TrajectoryData.dataPoint>();
 		parseFromJson(json.text);
 	}
 
     public void parseFromJson(string s) {
-//		Debug.Log("parsing... len:"+s.Length);
+		Debug.Log("parsing... len:"+s.Length);
 
 		StringReader reader = new StringReader(s);
 		string line;
@@ -115,7 +122,7 @@ public class TrajectoryData {
 //			MonoBehaviour.print(""+(i++)+" | "+dp);
 		}
 
-//		Debug.Log("parsed (B):"+" data.Count:"+data.Count);
+//		Debug.Log("parsed indicators:"+" data.Count:"+data.Count);
     }
 
 	string parse(string propName, string line, bool noWarning=false) {
@@ -126,6 +133,11 @@ public class TrajectoryData {
 			if (pattern.Equals("TimeStamp")) {
 				pattern = "[tT]ime[sS]tamp";
 			}
+
+			if (pattern.Equals("PlanetRadius")) {
+				pattern = "Planet(ary){0,1}Radius";
+			}
+
 			pattern = pattern  + "\":[^,]*(,| *})";
 //			MonoBehaviour.print("--search:"+pattern);
 			Match m = Regex.Match(line, pattern, RegexOptions.None);
@@ -135,6 +147,30 @@ public class TrajectoryData {
 				found=found.Substring(found.IndexOf(":")+1); //remove ':' & chars in front of it
 			}
 			else { 
+
+
+
+				if (propName == "TerrainHeight") {
+					return "0.0";
+/*
+					string parsed = parse("TerrainHeight",line, true); 
+
+					if (parsed != null) {
+
+						if (parsed.Contains("7976931348623157E")) {
+							terrainHeight = lastValidTerrainHeight; //Double.MinValue should not appear (should be replaced by interpolation in data prepare)
+							Debug.Log("WARN: TerrainHeight with OOB value! Should be interpolated before reaching here in other tool! Using lastValidTerrainHeight:"+lastValidTerrainHeight);
+						} else {
+							terrainHeight = double.Parse(parsed);
+							lastValidTerrainHeight = terrainHeight;
+						}
+					} else {
+						terrainHeight = 0.0;
+					}
+*/
+
+				}
+
 				if (!noWarning) {MonoBehaviour.print("WARN: Failed to parse '"+propName+"' from: "+line);}
 				return null;
 			}
@@ -142,9 +178,16 @@ public class TrajectoryData {
 		return found.Replace("\"", "");
 	}
 
+	public double lastValidTerrainHeight = 3000.0; //FIXME
+
 	void parseLine(string line) {
 		if (line == null) return;
+		if (!line.Contains(":")) return;
+		if (line.Contains("DUMMY_FOR_ERROR_CORRECTION")) return;
 
+		Debug.Log("--parseLine():"+line);
+
+		//get info by using reflection - see what properties are there in dataPoint
 		System.Reflection.PropertyInfo[] props = typeof(TrajectoryData.dataPoint).GetProperties(BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
 
 		//parse static varibles in pathData struct
@@ -162,12 +205,16 @@ public class TrajectoryData {
 		if (planetRadius == 0.0f) { 
 			string parsed = parse("PlanetRadius",line);
 			if (parsed != null)	{
-				planetRadius = float.Parse(parsed, System.Globalization.CultureInfo.InvariantCulture);
+				planetRadius = float.Parse(parsed);
 			} else {
 				MonoBehaviour.print("WARN: PlanetRadius cannot be parsed from first line, using default!");
 				planetRadius = DEFAULT_PLANET_RADIUS;
 			}
 		}
+
+
+
+		
 
 		//parse timeItStarted from the first line (or one of the first lines), we expect timebased ascending order of entries
 		if (timeItStarted == System.DateTime.MaxValue) {

@@ -157,8 +157,10 @@ MonoBehaviour:
   dataPointsRead: 0
   indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
     type: 3}
-  srvPrefab: {fileID: 0}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -211,6 +213,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &167129468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 167129469}
+  - component: {fileID: 167129470}
+  m_Layer: 0
+  m_Name: Trajectory - Sir Balthazar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &167129469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167129468}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &167129470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167129468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 1, g: 0.5568628, b: 0.60421056, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 003cd7a34b069b9fb820aa8a7cd8c8da, type: 3}
 --- !u!1 &228974585
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +328,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -308,8 +373,10 @@ MonoBehaviour:
   dataPointsRead: 0
   indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
     type: 3}
-  srvPrefab: {fileID: 0}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -428,6 +495,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -611,8 +679,10 @@ MonoBehaviour:
   dataPointsRead: 0
   indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
     type: 3}
-  srvPrefab: {fileID: 0}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -635,6 +705,68 @@ Transform:
   m_Father: {fileID: 1770240709}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &435043630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 435043631}
+  - component: {fileID: 435043632}
+  m_Layer: 0
+  m_Name: Trajectory - Hepp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &435043631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435043630}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &435043632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435043630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 0.10196078, g: 1, b: 0.41129467, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: d3be8a7f436406c6b97cef4c05861c03, type: 3}
 --- !u!1 &463340057
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,13 +813,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trajectoryPrefabObject: {fileID: 2015897453068835111, guid: 17ec91b908956b73d81c5d08a809aa7b,
     type: 3}
-  lineTailLength: 60
+  lineTailLength: 180
   isTailSeconds: 1
   timeNowGlobal: 0
-  timeNowHuman: --:--:--
+  timeNowHuman: 00:00:00
   timeNowSeconds: 0
   nextCapture: 0
-  nextCapturePeriodSimSeconds: 2.5
+  nextCapturePeriodSimSeconds: 1.2
   isScreenshot: 0
   isScreenshotNoGui: 0
   midFixOfScreenshotName: main
@@ -717,6 +849,98 @@ MonoBehaviour:
   isAxesInputDisabled: 1
   speed: 7
   speedRot: 50
+--- !u!1 &493840044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493840045}
+  m_Layer: 0
+  m_Name: Backgrounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &493840045
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493840044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2023557146}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &498498043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498498044}
+  - component: {fileID: 498498045}
+  m_Layer: 0
+  m_Name: Trajectory - Shaye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &498498044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498498043}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &498498045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498498043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 1, g: 0.7213842, b: 0.5568628, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 01d21b3c8536d1827b7897d90a9bee07, type: 3}
 --- !u!1 &525066345
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +991,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -828,6 +1053,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -852,7 +1078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &555083498
 Transform:
   m_ObjectHideFlags: 0
@@ -889,6 +1115,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -924,7 +1151,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1056934538}
+  - {fileID: 1181686293}
   m_Father: {fileID: 2003965591}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -964,6 +1191,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -986,6 +1214,130 @@ Transform:
   m_Father: {fileID: 1935184246}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &651886951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 651886952}
+  - component: {fileID: 651886953}
+  m_Layer: 0
+  m_Name: Trajectory - Sgurr - terrain 2o2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &651886952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651886951}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1015047260}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &651886953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651886951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 0.3407619, g: 1, b: 0, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 0606fcf722327047097627e0e4749ee4, type: 3}
+--- !u!1 &668739383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 668739384}
+  - component: {fileID: 668739385}
+  m_Layer: 0
+  m_Name: Trajectory - Sgurr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &668739384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668739383}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1015047260}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &668739385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668739383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 1, g: 1, b: 1, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 6586f5af88c3d12b08f89a182b52dfb2, type: 3}
 --- !u!1 &677773336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &677773337
 Transform:
   m_ObjectHideFlags: 0
@@ -1039,6 +1391,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0
   distanceTotalNow: 99999
   indexNow: 0
@@ -1139,6 +1492,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &758367920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 758367921}
+  - component: {fileID: 758367922}
+  m_Layer: 0
+  m_Name: Trajectory - Osashes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &758367921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758367920}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &758367922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758367920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 0.5198396, g: 0.6132076, b: 0.1272695, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 2bed6136ffb236471904057e058f2ac8, type: 3}
 --- !u!1 &759576010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,6 +1607,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -1253,6 +1669,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -1261,6 +1678,161 @@ MonoBehaviour:
   cmdr: 
   trajectoryColor: {r: 0.5198396, g: 0.6132076, b: 0.1272695, a: 1}
   jsonTrackingLogFile: {fileID: 4900000, guid: fb78071b82c8e3ee0af8e21c4e878bd4, type: 3}
+--- !u!1 &797152738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 797152739}
+  m_Layer: 0
+  m_Name: Backgrounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &797152739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797152738}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2019983514}
+  m_Father: {fileID: 1015047260}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &843914474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843914475}
+  - component: {fileID: 843914476}
+  m_Layer: 0
+  m_Name: Trajectory - Terrorsidic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &843914475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843914474}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &843914476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843914474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 0.43120328, g: 0.65545946, b: 0.8962264, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 5be3d3976ed43bb4182a7f3bd03ecda7, type: 3}
+--- !u!1 &849973670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 849973671}
+  - component: {fileID: 849973672}
+  m_Layer: 0
+  m_Name: Trajectory - Laskie1fr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &849973671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849973670}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &849973672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849973670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 0.500096, g: 0.10196078, b: 1, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 67c908084bb3fbee7adf94cd61d81f7e, type: 3}
 --- !u!1 &864202378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,6 +1886,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -1399,15 +1972,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.18252054, y: -0.33550653, z: 0.066432066, w: 0.92179626}
-  m_LocalPosition: {x: 6.44, y: 5, z: -6.38}
+  m_LocalRotation: {x: 0.18888436, y: 0.22865024, z: -0.045273874, w: 0.953935}
+  m_LocalPosition: {x: -19.59, y: 10.62, z: -5.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1001947307}
   - {fileID: 1435310607}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 22.4, y: -40.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.400002, y: 26.958002, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,6 +2042,60 @@ Transform:
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1015047258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1015047260}
+  - component: {fileID: 1015047259}
+  m_Layer: 0
+  m_Name: Route - Hyldeptu - race 5 - dev
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1015047259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015047258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afac780962a5d42588f510e1d0a8677e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartRequestOverrideByAuto: 0
+  startRequest: {fileID: 4900000, guid: e12a7be31fcf9f4268833cb64fdaed43, type: 3}
+  displayScale: {x: 100, y: 0.0045, z: -100}
+  displayShift: {x: 0, y: 0, z: 0}
+--- !u!4 &1015047260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015047258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 797152739}
+  - {fileID: 668739384}
+  - {fileID: 1752691490}
+  - {fileID: 1092526570}
+  - {fileID: 651886952}
+  - {fileID: 1235628971}
+  - {fileID: 1451216875}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1034869185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +2149,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -1530,100 +2158,6 @@ MonoBehaviour:
   cmdr: 
   trajectoryColor: {r: 1, g: 0.10196078, b: 0.27585903, a: 1}
   jsonTrackingLogFile: {fileID: 4900000, guid: d7830fa52800eb828b457af99f551d80, type: 3}
---- !u!1 &1056934537
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1056934538}
-  - component: {fileID: 1056934541}
-  - component: {fileID: 1056934540}
-  - component: {fileID: 1056934539}
-  m_Layer: 0
-  m_Name: Plane
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1056934538
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056934537}
-  m_LocalRotation: {x: 0, y: -0.43051103, z: 0, w: 0.9025853}
-  m_LocalPosition: {x: -13.65, y: -0.1, z: 10.28}
-  m_LocalScale: {x: 2.8564, y: 2.96, z: 7.319525}
-  m_Children: []
-  m_Father: {fileID: 565293147}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -51, z: 0}
---- !u!64 &1056934539
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056934537}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1056934540
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056934537}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: b5aca334827192125999e2bcd2b0511a, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1056934541
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056934537}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1083742473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,6 +2194,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -1816,6 +2351,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -1838,6 +2374,130 @@ Transform:
   m_Father: {fileID: 1935184246}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1092526569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092526570}
+  - component: {fileID: 1092526571}
+  m_Layer: 0
+  m_Name: Trajectory - Osashes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1092526570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092526569}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1015047260}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1092526571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092526569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 0.52156866, g: 0.6117647, b: 0.1254902, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: fe4ffe1b5db704e8596f301fae55d25f, type: 3}
+--- !u!1 &1097908025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1097908026}
+  - component: {fileID: 1097908027}
+  m_Layer: 0
+  m_Name: Trajectory - Crank Larson
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1097908026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097908025}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1097908027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097908025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 1, g: 0.73876, b: 0.10196078, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: c8ced359b3d6eb32983fc5de2a5e575b, type: 3}
 --- !u!1 &1098904302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +2534,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -1896,6 +2557,224 @@ Transform:
   m_Father: {fileID: 1770240709}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1181686292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181686293}
+  - component: {fileID: 1181686296}
+  - component: {fileID: 1181686295}
+  - component: {fileID: 1181686294}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1181686293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181686292}
+  m_LocalRotation: {x: -0, y: -0.27859604, z: -0, w: 0.9604084}
+  m_LocalPosition: {x: -14.01, y: -0.1, z: 20.84}
+  m_LocalScale: {x: 4.2315474, y: 4.3850226, z: 10.84334}
+  m_Children: []
+  m_Father: {fileID: 565293147}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -32.353, z: 0}
+--- !u!64 &1181686294
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181686292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1181686295
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181686292}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b5aca334827192125999e2bcd2b0511a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1181686296
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181686292}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1214935771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1214935772}
+  - component: {fileID: 1214935773}
+  m_Layer: 0
+  m_Name: Trajectory - Alec Turner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1214935772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214935771}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1214935773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214935771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 0.1537914, g: 0.440956, b: 0.6037736, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: a28e0bf66b61086b3be2d572abaa42d7, type: 3}
+--- !u!1 &1235628970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235628971}
+  - component: {fileID: 1235628972}
+  m_Layer: 0
+  m_Name: Trajectory - Sgurr - terrain 2o2 i
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1235628971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235628970}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1015047260}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1235628972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235628970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 0.9716792, g: 1, b: 0, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: a33cc548cc6bfb5fe91096217ee050ed, type: 3}
 --- !u!1 &1249958303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,6 +2811,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2007,6 +2887,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2015,6 +2896,66 @@ MonoBehaviour:
   cmdr: 
   trajectoryColor: {r: 1, g: 0.73876, b: 0.10196078, a: 1}
   jsonTrackingLogFile: {fileID: 4900000, guid: 86b62e670a10d8bfe8b782bd45103241, type: 3}
+--- !u!1 &1281308918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1281308920}
+  - component: {fileID: 1281308919}
+  m_Layer: 0
+  m_Name: Route - Skinfaxi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1281308919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281308918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afac780962a5d42588f510e1d0a8677e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartRequestOverrideByAuto: 0
+  startRequest: {fileID: 4900000, guid: c00014132925c9824a67f48dc3584bb6, type: 3}
+  displayScale: {x: 100, y: 0.0045, z: -100}
+  displayShift: {x: 0, y: 0, z: 0}
+--- !u!4 &1281308920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281308918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1868715934}
+  - {fileID: 849973671}
+  - {fileID: 167129469}
+  - {fileID: 435043631}
+  - {fileID: 843914475}
+  - {fileID: 1944734487}
+  - {fileID: 1488525615}
+  - {fileID: 1097908026}
+  - {fileID: 1361795901}
+  - {fileID: 1885872962}
+  - {fileID: 758367921}
+  - {fileID: 498498044}
+  - {fileID: 1214935772}
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1297187895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,7 +2972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1297187896
 Transform:
   m_ObjectHideFlags: 0
@@ -2068,6 +3009,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2076,6 +3018,68 @@ MonoBehaviour:
   cmdr: BlackMaze 2
   trajectoryColor: {r: 0.7467398, g: 1, b: 0.10196078, a: 1}
   jsonTrackingLogFile: {fileID: 4900000, guid: 1158653a7dbec3cae8ab81c8026e2b8b, type: 3}
+--- !u!1 &1361795900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1361795901}
+  - component: {fileID: 1361795902}
+  m_Layer: 0
+  m_Name: Trajectory - FatHaggard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1361795901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361795900}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1361795902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361795900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 1, g: 0.10196078, b: 0.27585903, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 35bbc378c100353099274ab88ec3c259, type: 3}
 --- !u!1 &1396330280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2237,6 +3241,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2347,6 +3352,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2355,6 +3361,68 @@ MonoBehaviour:
   cmdr: 
   trajectoryColor: {r: 0.10196078, g: 0.58366245, b: 1, a: 1}
   jsonTrackingLogFile: {fileID: 4900000, guid: eba0f5bfeaf71c9729f62d42603c9f95, type: 3}
+--- !u!1 &1451216874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1451216875}
+  - component: {fileID: 1451216876}
+  m_Layer: 0
+  m_Name: Trajectory - flight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1451216875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451216874}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1015047260}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1451216876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451216874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 78bb8d48c9db7770b833d027dd27a891,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 1, g: 0, b: 0.10894394, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: a8a9e3eb82efbc1d094d5c2f1476d2a0, type: 3}
 --- !u!1 &1460174704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2371,7 +3439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1460174705
 Transform:
   m_ObjectHideFlags: 0
@@ -2408,6 +3476,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2452,6 +3521,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2474,6 +3544,68 @@ Transform:
   m_Father: {fileID: 1935184246}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1488525614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488525615}
+  - component: {fileID: 1488525616}
+  m_Layer: 0
+  m_Name: Trajectory - Donald Anderson
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1488525615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488525614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1488525616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488525614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 0.10196078, g: 0.58366245, b: 1, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 5a9a3c178e00ce4e2ad16983c09aedbe, type: 3}
 --- !u!1 &1517046399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2527,6 +3659,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2571,6 +3704,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2676,6 +3810,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2737,6 +3872,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2745,6 +3881,68 @@ MonoBehaviour:
   cmdr: 
   trajectoryColor: {r: 0.43120328, g: 0.65545946, b: 0.8962264, a: 1}
   jsonTrackingLogFile: {fileID: 4900000, guid: 244246027d929f832b86520ebd793651, type: 3}
+--- !u!1 &1752691489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1752691490}
+  - component: {fileID: 1752691491}
+  m_Layer: 0
+  m_Name: Trajectory - Sgurr - terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1752691490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752691489}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1015047260}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1752691491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752691489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 1, g: 1, b: 1, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: e483621d93d55a4c1a24801f36c36a38, type: 3}
 --- !u!1 &1770240708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,6 +3999,162 @@ MonoBehaviour:
   startRequest: {fileID: 4900000, guid: 9fd093f41efcc3672912455b8dcd3e3b, type: 3}
   displayScale: {x: 100, y: 0.0017, z: -50}
   displayShift: {x: 0, y: 0, z: 0}
+--- !u!1 &1771199496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1771199497}
+  - component: {fileID: 1771199498}
+  m_Layer: 0
+  m_Name: Trajectory - Deneb height01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1771199497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771199496}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2023557146}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1771199498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771199496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 0.64952374, g: 1, b: 0.4811321, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 9b228a4634ed79fd2bf94829379b6eda, type: 3}
+--- !u!1 &1789732566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1789732567}
+  - component: {fileID: 1789732570}
+  - component: {fileID: 1789732569}
+  - component: {fileID: 1789732568}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1789732567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789732566}
+  m_LocalRotation: {x: -0, y: -0.43051103, z: -0, w: 0.9025853}
+  m_LocalPosition: {x: -13.65, y: -0.1, z: 10.28}
+  m_LocalScale: {x: 2.8563998, y: 2.96, z: 7.319525}
+  m_Children: []
+  m_Father: {fileID: 2134011648}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -51, z: 0}
+--- !u!64 &1789732568
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789732566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1789732569
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789732566}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b5aca334827192125999e2bcd2b0511a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1789732570
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789732566}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1794910190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,6 +4191,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2857,6 +4212,68 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1770240709}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1804937197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804937199}
+  - component: {fileID: 1804937198}
+  m_Layer: 0
+  m_Name: Trajectory - Deneb height00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1804937198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804937197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 1, g: 0, b: 0, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 91212de6b1ca4ee978c38bc8839a41a9, type: 3}
+--- !u!4 &1804937199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804937197}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2023557146}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1812999002
@@ -2925,6 +4342,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -2946,6 +4364,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1935184246}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1868715933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1868715934}
+  m_Layer: 0
+  m_Name: Backgrounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1868715934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868715933}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1880358026
 GameObject:
@@ -2997,6 +4445,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -3005,6 +4454,68 @@ MonoBehaviour:
   cmdr: 
   trajectoryColor: {r: 0.1, g: 1, b: 0.1, a: 1}
   jsonTrackingLogFile: {fileID: 0}
+--- !u!1 &1885872961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1885872962}
+  - component: {fileID: 1885872963}
+  m_Layer: 0
+  m_Name: Trajectory - Sgurr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1885872962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885872961}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1885872963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885872961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 1, g: 1, b: 1, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: 629acc25f296e089c90d15b3f2f2304f, type: 3}
 --- !u!1 &1920102550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3058,6 +4569,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -3102,6 +4614,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -3140,7 +4653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1934454404
 Transform:
   m_ObjectHideFlags: 0
@@ -3177,6 +4690,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0
   distanceTotalNow: 99999
   indexNow: 0
@@ -3222,6 +4736,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1944734486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1944734487}
+  - component: {fileID: 1944734488}
+  m_Layer: 0
+  m_Name: Trajectory - Donald47
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1944734487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944734486}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281308920}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1944734488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944734486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2c66a52e48185f4ad92f7ec1e33554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrajectoryHacked: 0
+  textPrefab: {fileID: 1747043335884579306, guid: 838307444fb12ee96a2cc94b9bbd2a0f,
+    type: 3}
+  planet: 
+  dataPointsRead: 0
+  indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
+    type: 3}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
+  srv: {fileID: 0}
+  isRereadingFromDisk: 0
+  lineWidth: 0.05
+  distanceTotalNow: 99999
+  indexNow: 0
+  waypointNow: 0
+  timeNow: 0
+  cmdr: 
+  trajectoryColor: {r: 0.58431333, g: 1, b: 0.10196078, a: 1}
+  jsonTrackingLogFile: {fileID: 4900000, guid: c06265fc86d515f10b7299514188bdf0, type: 3}
 --- !u!1 &1974826774
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,7 +4814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1974826775
 Transform:
   m_ObjectHideFlags: 0
@@ -3275,6 +4851,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -3336,6 +4913,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -3360,7 +4938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2003965590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3375,7 +4953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStartRequestOverrideByAuto: 0
   startRequest: {fileID: 4900000, guid: e12a7be31fcf9f4268833cb64fdaed43, type: 3}
-  displayScale: {x: 100, y: 0.0017, z: -50}
+  displayScale: {x: 100, y: 0.0045, z: -100}
   displayShift: {x: 0, y: 0, z: 0}
 --- !u!4 &2003965591
 Transform:
@@ -3406,6 +4984,150 @@ Transform:
   - {fileID: 1934454404}
   m_Father: {fileID: 0}
   m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2019983513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2019983514}
+  - component: {fileID: 2019983517}
+  - component: {fileID: 2019983516}
+  - component: {fileID: 2019983515}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2019983514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019983513}
+  m_LocalRotation: {x: -0, y: -0.27859604, z: -0, w: 0.9604084}
+  m_LocalPosition: {x: -14.01, y: -0.1, z: 20.84}
+  m_LocalScale: {x: 4.2315474, y: 4.3850226, z: 10.843339}
+  m_Children: []
+  m_Father: {fileID: 797152739}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -32.353, z: 0}
+--- !u!64 &2019983515
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019983513}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2019983516
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019983513}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b5aca334827192125999e2bcd2b0511a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &2019983517
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019983513}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2023557144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2023557146}
+  - component: {fileID: 2023557145}
+  m_Layer: 0
+  m_Name: Route - Deneb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &2023557145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023557144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afac780962a5d42588f510e1d0a8677e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartRequestOverrideByAuto: 0
+  startRequest: {fileID: 4900000, guid: 4ae5917bb3d6db360bbf7111b29f836b, type: 3}
+  displayScale: {x: 100, y: -0.01, z: -50}
+  displayShift: {x: 0, y: 0, z: 0}
+--- !u!4 &2023557146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023557144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 493840045}
+  - {fileID: 1804937199}
+  - {fileID: 1771199497}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2027213706
 GameObject:
@@ -3443,8 +5165,10 @@ MonoBehaviour:
   dataPointsRead: 0
   indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
     type: 3}
-  srvPrefab: {fileID: 0}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -3520,6 +5244,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -3528,100 +5253,6 @@ MonoBehaviour:
   cmdr: 
   trajectoryColor: {r: 0.500096, g: 0.10196078, b: 1, a: 1}
   jsonTrackingLogFile: {fileID: 4900000, guid: 1340a7f45b4a43afea156bd94d554be2, type: 3}
---- !u!1 &2067575715
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2067575716}
-  - component: {fileID: 2067575719}
-  - component: {fileID: 2067575718}
-  - component: {fileID: 2067575717}
-  m_Layer: 0
-  m_Name: Plane
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2067575716
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067575715}
-  m_LocalRotation: {x: 0, y: -0.43051103, z: 0, w: 0.9025853}
-  m_LocalPosition: {x: -13.97, y: -0.1, z: 10.56}
-  m_LocalScale: {x: 2.950416, y: 2.950416, z: 7.5850286}
-  m_Children: []
-  m_Father: {fileID: 2134011648}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -51, z: 0}
---- !u!64 &2067575717
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067575715}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2067575718
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067575715}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: b5aca334827192125999e2bcd2b0511a, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &2067575719
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067575715}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2070398366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,6 +5289,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -3716,8 +5348,10 @@ MonoBehaviour:
   dataPointsRead: 0
   indicatorPointObject: {fileID: 6138658394449102015, guid: 7e98838445941c5b18abd202aaf78319,
     type: 3}
-  srvPrefab: {fileID: 0}
+  srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
+    type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -3767,7 +5401,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2067575716}
+  - {fileID: 1789732567}
   m_Father: {fileID: 340540340}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3787,7 +5421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2138478105
 Transform:
   m_ObjectHideFlags: 0
@@ -3824,6 +5458,7 @@ MonoBehaviour:
   srvPrefab: {fileID: 5129741513205216484, guid: 2158ff4cbb0900d93a1aa96f45112b29,
     type: 3}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0
@@ -3868,6 +5503,7 @@ MonoBehaviour:
   indicatorPointObject: {fileID: 0}
   srvPrefab: {fileID: 0}
   srv: {fileID: 0}
+  isRereadingFromDisk: 0
   lineWidth: 0.05
   distanceTotalNow: 99999
   indexNow: 0

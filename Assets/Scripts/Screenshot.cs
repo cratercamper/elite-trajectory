@@ -138,6 +138,7 @@ public class Screenshot : MonoBehaviour {
 
 		// create new thread to save the image to file (only operation that can be done in background)
 		new System.Threading.Thread(() => {
+			if (!Directory.Exists(folder)) {Directory.CreateDirectory(folder);}
 			// create file and write optional header with image bytes
 			var f = System.IO.File.Create(filename);
 			if (fileHeader != null) f.Write(fileHeader, 0, fileHeader.Length);

@@ -1,0 +1,8 @@
+{"Name":"Deneb heightmap",
+
+"Waypoints":[
+
+{"Location":{"Latitude":57.752377,"Longitude":-119.823578,"Altitude":11,"PlanetRadius":700425.937500,"Name":"D2","PlanetName":"Deneb Algedi A 5 a","SystemName":"Deneb Algedi"}, 
+			"Radius":100,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00","Name":"D2 mountain"}
+
+]}

@@ -98,7 +98,7 @@ public class mainControl : MonoBehaviour {
 
 	Trajectory statusTrajectory;
 	void Start() {
-		statusFileReader = new StatusFileReader();
+		statusFileReader = new StatusFileReader(statusFile);
 
 		if (isStatusFileEnabled) {
 			if (statusTrajectory == null) {
@@ -230,8 +230,11 @@ HELP:
 		if (timeNow != timeNowGlobal) {
 			timeNow = timeNowGlobal;
 
-			trajectoryLongest.updateMeForTheSakeOfGlobalTime();
-			timeNowSeconds = trajectoryLongest.getTimeNowSec();
+			if (trajectoryLongest != null) {
+				trajectoryLongest.updateMeForTheSakeOfGlobalTime();
+				timeNowSeconds = trajectoryLongest.getTimeNowSec();
+			}
+
 			timeNowHuman = getTimeHuman(timeNowSeconds);
 		}
 
@@ -252,7 +255,7 @@ HELP:
 			if (Time.time > timeNextStatusFilePoll) {
 				timeNextStatusFilePoll = Time.time + timeNextStatusFilePollDelta;
 
-				string newData = statusFileReader.ProcessStatusFileUpdate(statusFile);
+				string newData = statusFileReader.ProcessStatusFileUpdate();
 //				Debug.Log("newData:"+newData);
 				if (!System.String.IsNullOrEmpty(newData)) {
 					addDataToStatusTrajectory(newData);
@@ -269,6 +272,9 @@ HELP:
 		if (trajectoryLongest == null) {
 			Trajectory[] tt = activeRoute.GetComponentsInChildren<Trajectory>();
 			foreach (Trajectory t in tt) {
+				Debug.Log("t:"+t);
+				Debug.Log("HEREOER");
+				Debug.Log("t:"+t+" indicators:"+t.getIndicatorCount());
 				if ( (trajectoryLongest == null) || (t.getIndicatorCount() > trajectoryLongest.getIndicatorCount()) ) {
 					trajectoryLongest = t;
 				}
@@ -300,8 +306,12 @@ HELP:
 			if (timeNow < 0.0f) timeNow = 0f;
 
 			timeNowGlobal = timeNow;
-			timeNowSeconds = trajectoryLongest.getTimeNowSec();
-			timeNowHuman = getTimeHuman(timeNowSeconds);
+			try {
+				timeNowSeconds = trajectoryLongest.getTimeNowSec();
+				timeNowHuman = getTimeHuman(timeNowSeconds);
+			} catch (System.Exception) {
+//FIXME:enableme				Debug.Log("ERROR: Failed to get time from longest trajectory ("+trajectoryLongest+")! It's empty?");
+			}
 		}
 
 
@@ -355,6 +365,14 @@ HELP:
 
 		if (Input.GetKeyDown("g")) {
 			isFollow = !isFollow;
+
+			if (isFollowCurrent) {
+				followObject = statusTrajectory.srv;
+			} else {
+				followObject = Trajectory.followLeaderObject;
+			}
+
+
 			if (followObject == null) {
 				Debug.Log("WARN: followObject == null. Nothing to follow");
 				isFollow = false;

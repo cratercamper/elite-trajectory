@@ -19,12 +19,14 @@ public class Route : MonoBehaviour {
 	public routeData rd;
 	private EDRoute r;
 
-	[ReadOnly]
-	public Vector3 displayScale = new Vector3(100.0f, 0.0017f, -50.0f); // latitude is 180 (-90 to 90), longitude is 360 (-180 to 0 to 180), middle coord is height of jumps
+//	[ReadOnly]
+	public Vector3 displayScale = new Vector3(100.0f, -1.00f, -50.0f); // latitude is 180 (-90 to 90), longitude is 360 (-180 to 0 to 180), middle coord is height of jumps
+	//public Vector3 displayScale = new Vector3(100.0f, 0.0017f, -50.0f); // latitude is 180 (-90 to 90), longitude is 360 (-180 to 0 to 180), middle coord is height of jumps
 	[ReadOnly]
 	public Vector3 displayShift = new Vector3(0,0,0); //automatically will be set from the first dataPoint of the first trajectory
 
 	void setDisplayShift(EDRoute r) {
+		Debug.Log("displayShift wp no:"+r.Waypoints.Count);
 		if (displayShift == new Vector3(0,0,0)) { //TODO: set to start point of race?
 			displayShift = new Vector3((float) -r.Waypoints[0].Location.Latitude, 0, (float) -r.Waypoints[0].Location.Longitude);
 		}

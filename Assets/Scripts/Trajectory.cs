@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -41,9 +42,9 @@ public class Trajectory : MonoBehaviour {
 	public GameObject srv; //TODO: change to ship if attitude high enough
 
 	//enable real-time (re)reading of asset file //TODO: when in real time mode, read directly Status.json file
-//	public bool isRealTime;
-//	float timeNextReread = 10f;
-//	float timeNextRereadPeriod = 5f;
+	public bool isRereadingFromDisk;
+	float timeNextReread = 10f;
+	float timeNextRereadPeriod = 5f;
 
 	public float lineWidth=0.05f;
 	//global time -  shared among all trajectories, max value automatically set from the longest trajectory
@@ -91,7 +92,9 @@ public class Trajectory : MonoBehaviour {
 	}
 
 	public int getIndicatorCount() {
-		return indicators.Count;
+		if (indicators!=null)
+			return indicators.Count;
+		return 0;
 	}
 
 	public float getTimeNowSec() {
@@ -149,6 +152,7 @@ public class Trajectory : MonoBehaviour {
 		(lineContainer = new GameObject()).name = "Lines";                           lineContainer.transform.parent = this.transform;
 		(pointContainer = new GameObject()).name = "Points";                         pointContainer.transform.parent = this.transform;
 
+		Debug.Log("init() t:"+this);
 		init();
 
 		serno = Trajectory.sernoMax;
@@ -159,9 +163,9 @@ public class Trajectory : MonoBehaviour {
 
 	void init() {
 
-//#if UNITY_EDITOR
-//		if (isRealTime) { AssetDatabase.Refresh(); } //TODO: base realtime reading not on assets
-//#endif
+#if UNITY_EDITOR
+		if (isRereadingFromDisk) { AssetDatabase.Refresh(); } //TODO: base realtime reading not on assets
+#endif
 
 		td = new TrajectoryData(jsonTrackingLogFile);
 
@@ -181,7 +185,7 @@ public class Trajectory : MonoBehaviour {
 	public void addData(string json) {
 		td.parseFromJson(json);
 		makeIndicators();
-//		MonoBehaviour.print("addData() of '" + this.name + "' done, points read: "+dataPointsRead);
+		MonoBehaviour.print("addData() of '" + this.name + "' done, points read: "+dataPointsRead);
 	}
 
 
@@ -189,9 +193,12 @@ public class Trajectory : MonoBehaviour {
 		return Vector3.Scale(r.displayScale,(r.displayShift + v));
 	}
 
+
 	void makeIndicators() {
 		foreach (Transform child in lineContainer.transform) { GameObject.Destroy(child.gameObject); }
 		foreach (Transform child in pointContainer.transform) { GameObject.Destroy(child.gameObject); }
+
+		Debug.Log("HEER");
 
 		indicators = new List<trajectoryIndicator>();
 		Vector3 prev = new Vector3(0,0,0);
@@ -200,7 +207,12 @@ public class Trajectory : MonoBehaviour {
 		int i=0;
 		foreach(TrajectoryData.dataPoint dp in td.data) {
 			i++;
-			Vector3 pos = applyDisplayShiftScale(myRoute, new Vector3(dp.Latitude, dp.Altitude, dp.Longitude));
+
+			if ( (dp.TerrainHeight > 1000000.0) || (dp.TerrainHeight < -1000000.0) ) {
+				Debug.Log("ERROR: dp.TerrainHeight out of bounds! index:"+i+" dp.TerrainHeight "+dp.TerrainHeight);
+				continue;
+			}
+			Vector3 pos = applyDisplayShiftScale(myRoute, new Vector3(dp.Latitude, (float) (dp.Altitude +(dp.TerrainHeight)), dp.Longitude));
 			indicators.Add(new trajectoryIndicator(dp, pos, prev, trajectoryColor, lineWidth, indicatorPointObject, pointContainer, lineContainer));
 			prev = pos;
 		}
@@ -244,7 +256,8 @@ public class Trajectory : MonoBehaviour {
 			}
 		}
 
-//FIXME: REMOVEME:
+
+/*
 		Trajectory.textFieldsWaypointTimesLegend[0].text = "Start";
 		Trajectory.textFieldsWaypointTimesLegend[1].text = "70 km";
 		Trajectory.textFieldsWaypointTimesLegend[2].text = "60 km";
@@ -254,7 +267,7 @@ public class Trajectory : MonoBehaviour {
 		Trajectory.textFieldsWaypointTimesLegend[6].text = "20 km";
 		Trajectory.textFieldsWaypointTimesLegend[7].text = "10 km";
 		Trajectory.textFieldsWaypointTimesLegend[8].text = "Finish";
-
+*/
 		return ret;
 	}
 
@@ -433,6 +446,25 @@ public class Trajectory : MonoBehaviour {
 	}
 
 
+	float calculateDimFactor() {
+		float ret = 1.0f;
+
+		//Debug.Log("indicators cnt:"+indicators.Count);
+//		try {
+		if (getTimeNowSec() < (- 5.0f + mainControl.instance.getTimeNowSec()) ) {
+			ret = 10.0f / (- 5.0f +  mainControl.instance.getTimeNowSec() - getTimeNowSec() );
+			if (ret>1.0f) ret = 1.0f;
+			if (ret<0.0f) ret = 0.0f;
+//			Debug.Log("ret:"+ret);
+
+//			Debug.Log("T:"+getTimeNowSec()+" mainT:"+mainControl.instance.getTimeNowSec() + " t:"+this);
+		}
+//		} catch (Exception e) {
+//			Debug.Log("ERROR: Exception! t:"+this+" indexNow:"+indexNow);
+//		}
+		return ret;
+	}
+
 /*-----------------------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------------*/
@@ -448,15 +480,13 @@ public class Trajectory : MonoBehaviour {
 		}
 
 
-		float dimFactor=1.0f;
-		if (getTimeNowSec() < (- 5.0f + mainControl.instance.getTimeNowSec()) ) {
-			dimFactor = 10.0f / (- 5.0f +  mainControl.instance.getTimeNowSec() - getTimeNowSec() );
-			if (dimFactor>1.0f) dimFactor = 1.0f;
-			if (dimFactor<0.0f) dimFactor = 0.0f;
-//			Debug.Log("dimFactor:"+dimFactor);
-
-//			Debug.Log("T:"+getTimeNowSec()+" mainT:"+mainControl.instance.getTimeNowSec() + " t:"+this);
+		if (indicators.Count == 0) {
+			Debug.Log("WARN: Skipping update! No indicators in t:"+this);
+			return;
 		}
+
+		float dimFactor=calculateDimFactor();
+
 
 		timeNow = mainControl.instance.getTimeNow();
 
@@ -487,21 +517,31 @@ public class Trajectory : MonoBehaviour {
 		//move & scale SRV - TODO: check flying & change to ship
 		if (indexNow > -1) {
 			srv.transform.position = applyDisplayShiftScale(myRoute, trajectoryIndicator.positionNow(indicators[indexNow]));
-			srv.transform.eulerAngles = new Vector3(0, - trajectoryIndicator.headingNow(indicators[indexNow]), 0);
+			srv.transform.eulerAngles = new Vector3(0,  trajectoryIndicator.headingNow(indicators[indexNow]), 0);
 		}
 		float srvCamDist = (srv.transform.position - Camera.main.transform.position).magnitude;
-		float srvScaleOrig = 0.003f;
+		float srvScaleOrig = 0.004f;
 		srv.transform.localScale = new Vector3(srvScaleOrig*srvCamDist, srvScaleOrig*srvCamDist, srvScaleOrig*srvCamDist);
 
 
+		Renderer[] srvParts = srv.GetComponentsInChildren<Renderer>();
+		foreach (var part in srvParts) {
+			if (indicators[indexNow].isHigh()) {
+				part.enabled = false;
+			} else {
+				part.enabled = true;
+			}
+		}
+
 //		Debug.Log("HHHH 3 indexNow:"+indexNow + " indicators.Count:"+indicators.Count);
 		//get new data if we are in real-time mode
-//		if (isRealTime) {
-//			if (timeNextReread < Time.realtimeSinceStartup) {
-//				timeNextReread = Time.realtimeSinceStartup + timeNextRereadPeriod;
-//				init(); //reread whole file (which may contain new entries), recreate indicators (TODO: recreate to read only new entries, read file, not asset)
-//			}
-//		}
+		if (isRereadingFromDisk) {
+			if (timeNextReread < Time.realtimeSinceStartup) {
+				timeNextReread = Time.realtimeSinceStartup + timeNextRereadPeriod;
+				init(); //reread whole file (which may contain new entries), recreate indicators (TODO: recreate to read only new entries, read file, not asset)
+				Debug.Log("Reread finished for t:"+this);
+			}
+		}
 
 
 		//calculate distance to next waypoint & to finish, write to player list
@@ -612,8 +652,7 @@ public class Trajectory : MonoBehaviour {
 				t.drawOrder = drawOrder;
 				t.moveTextFieldToPlace();
 
-		//FIXME: HACK: 137 shouldn't be there
-				t.textField.text = textFieldPrepare(t,true,true,trajectoryIndicator.spanToMinSec(System.TimeSpan.FromSeconds(137+t.timeFinished)));
+				t.textField.text = textFieldPrepare(t,true,true,trajectoryIndicator.spanToMinSec(System.TimeSpan.FromSeconds(t.timeFinished)));
 
 				drawOrder++;
 			}
@@ -631,6 +670,9 @@ public class Trajectory : MonoBehaviour {
 
 		foreach (var item in distancesTrajectories) {
 			Trajectory t = item.Value;
+			if (t.indicators == null) continue;
+			if (t.indicators.Count == 0) continue;
+
 			t.drawOrder = drawOrder;
 			t.moveTextFieldToPlace();
 
@@ -645,8 +687,7 @@ public class Trajectory : MonoBehaviour {
 			drawOrder++;
 		}
 
-		//FIXME: HACK: 137 shouldn't be there
-		textFieldTime.text = "T+"+mainControl.instance.getTimeHuman(137+mainControl.instance.getTimeNowSec()); // leader sets time trajectoryIndicator on screen
+		textFieldTime.text = "T+"+mainControl.instance.getTimeHuman(mainControl.instance.getTimeNowSec()); // leader sets time trajectoryIndicator on screen
 
 
 		// in waypoint-relative-time mode, find out who was fastest for every waypoint, set background of textField
