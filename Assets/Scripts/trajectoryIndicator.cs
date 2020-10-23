@@ -16,6 +16,8 @@ public class trajectoryIndicator {
 
 	static float timeEnd;
 
+	float terrainHeightRaycast;
+
 	//rendering & parameters - line connecting 2 datapoints
 	GameObject line;
 	LineRenderer lr;
@@ -23,7 +25,6 @@ public class trajectoryIndicator {
 	Color lineEndColorOrig;
 	float lineBrightness = 1.0f;
 
-	float brightnessDim = 0.3f;
 	float brightnessBright = 1.0f;
 	float dimFactor = 1.0f; //used to completely fade out the line (e.g. after death)
 
@@ -34,7 +35,7 @@ public class trajectoryIndicator {
 	Vector3 pointScaleOrig;
 
 	public trajectoryIndicator (
-					TrajectoryData.dataPoint dp, Vector3 pos, Vector3 previous,
+					TrajectoryData.dataPoint dp, float terrainHeightRaycast, Vector3 pos, Vector3 previous,
 					Color color, float lineWidth, GameObject indicatorPointObject,
 					GameObject pointContainer, GameObject lineContainer) {
 
@@ -45,10 +46,11 @@ public class trajectoryIndicator {
 
 		Vector3 previousDir = pos - previous;
 //		Debug.Log("previousDir:"+previousDir);
-		point.transform.position += new Vector3(0,-0.1f -dp.Altitude*0.0045f,0);
+		point.transform.position += new Vector3(0,-0.1f -dp.Altitude*0.0045f,0); //FIXME - point (indicating cube/strip) - magic number & outdated due to terrain cast
 		point.transform.LookAt(previousDir+point.transform.position);
 
 		this.dp = dp;
+		this.terrainHeightRaycast = terrainHeightRaycast;
 		this.point = point;
 		this.line = makeLine(previous, pos, color, lineContainer, lineWidth);
 
@@ -113,7 +115,7 @@ public class trajectoryIndicator {
 
 	static public Vector3 positionNow(trajectoryIndicator indicator) {
 		//FIXME: iterate instead remember & require bump (+ cache with set time)
-		return new Vector3(indicator.dp.Latitude, (float) indicator.dp.TerrainHeight + indicator.dp.Altitude, indicator.dp.Longitude);
+		return new Vector3(indicator.dp.Latitude, (float) indicator.terrainHeightRaycast + indicator.dp.Altitude, indicator.dp.Longitude);
 	}
 
 	static public int headingNow(trajectoryIndicator indicator) {
@@ -131,7 +133,7 @@ public class trajectoryIndicator {
 		if (bright) {
 			lineBrightness = brightnessBright;
 		} else {
-			lineBrightness = brightnessDim;
+			lineBrightness = mainControl.instance.brightnessDim;
 		}
 		setLineBrightness();
 //FIXME:		point.transform.localScale = pointScaleOrig / 4f;
@@ -216,10 +218,10 @@ public class trajectoryIndicator {
 
 				if (dT > lineTailLength/2) { //brightness not decreased on 1st half of the tail
 					if (dT > lineTailLength) {
-						lineBrightness=brightnessDim;
+						lineBrightness=mainControl.instance.brightnessDim;
 					} else {
 						int lenPastHalf = (indexNow - myIndex) - lineTailLength/2;
-						lineBrightness= brightnessBright - ((brightnessBright - brightnessDim) * ((float)lenPastHalf / ((float)lineTailLength/2.0f)));
+						lineBrightness= brightnessBright - ((brightnessBright - mainControl.instance.brightnessDim) * ((float)lenPastHalf / ((float)lineTailLength/2.0f)));
 					}
 					setLineBrightness();
 				}
@@ -227,10 +229,10 @@ public class trajectoryIndicator {
 			} else {
 				if (indexNow - myIndex > lineTailLength/2) {
 					if (indexNow - myIndex > lineTailLength) {
-						lineBrightness=brightnessDim;
+						lineBrightness=mainControl.instance.brightnessDim;
 					} else {
 						int lenPastHalf = (indexNow - myIndex) - lineTailLength/2;
-						lineBrightness= brightnessBright - ((brightnessBright - brightnessDim) * ((float)lenPastHalf / ((float)lineTailLength/2.0f)));
+						lineBrightness= brightnessBright - ((brightnessBright - mainControl.instance.brightnessDim) * ((float)lenPastHalf / ((float)lineTailLength/2.0f)));
 		//				MonoBehaviour.print("BRIGHT: lph:"+lenPastHalf+" lb:"+lineBrightness+" ratio:"+((float)lenPastHalf / ((float)lineTailLength/2.0f)));
 					}
 					setLineBrightness();

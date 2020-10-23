@@ -1,0 +1,11 @@
+{"Name":"Ninsun Rally A",
+
+"Waypoints":[
+
+{"Location":{"Latitude":-59.957718,"Longitude":-62.621376,"Altitude":0,"PlanetRadius":2174714.25,"Name":"Start - Kube-McDowell Enterprise","PlanetName":"","SystemName":""}, 
+			"Radius":100,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00"},
+
+{"Location":{"Latitude":-59.460323,"Longitude":-59.195702,"Altitude":0,"PlanetRadius":2174714.25,"Name":"Finish - Barreiros Arsenol","PlanetName":"","SystemName":""}, 
+			"Radius":100,"MinimumAltitude":0,"MaximumAltitude":0,"Direction":-1,"TimeTracked":"0001-01-01T00:00:00"}
+
+]}

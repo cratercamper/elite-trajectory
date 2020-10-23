@@ -53,7 +53,17 @@ public class cameraControl : MonoBehaviour
 		if (Input.GetKey(KeyCode.LeftArrow)) cam.transform.Rotate (0.0f, -speedRot * Time.deltaTime, 0.0f, Space.World);
 		if (Input.GetKey(KeyCode.RightArrow)) cam.transform.Rotate (0.0f, speedRot * Time.deltaTime, 0.0f, Space.World);
 
-		if (cam.transform.position.y < 0.0f) cam.transform.position = new Vector3(cam.transform.position.x, 0.0f, cam.transform.position.z);
+
+
+		float terrainDist;
+		terrainDist  = (float) - trajectoryTerrainRaycast.raycastToTerrain(new Vector3(cam.transform.position.x,cam.transform.position.y+100.0f,cam.transform.position.z));
+
+		if (terrainDist > -101.0f) {
+			Debug.Log("camshift: terrainDist:"+terrainDist);
+			cam.transform.Translate (Vector3.up * (terrainDist +101.0f));
+		}
+
+//		if (cam.transform.position.y < -5.0f) cam.transform.position = new Vector3(cam.transform.position.x, -5.0f, cam.transform.position.z);
 
 
 

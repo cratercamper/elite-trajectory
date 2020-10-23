@@ -193,6 +193,13 @@ public class Trajectory : MonoBehaviour {
 		return Vector3.Scale(r.displayScale,(r.displayShift + v));
 	}
 
+	Vector3 applyDisplayScale(Route r, Vector3 v) {
+		return Vector3.Scale(r.displayScale,v);
+	}
+
+	Vector3 applyDisplayScaleReverse(Route r, Vector3 v) {
+		return Vector3.Scale(new Vector3(1.0f/r.displayScale.x, 1.0f/r.displayScale.y,   1.0f/r.displayScale.z)   ,v);
+	}
 
 	void makeIndicators() {
 		foreach (Transform child in lineContainer.transform) { GameObject.Destroy(child.gameObject); }
@@ -208,12 +215,36 @@ public class Trajectory : MonoBehaviour {
 		foreach(TrajectoryData.dataPoint dp in td.data) {
 			i++;
 
+/*
+			Double terrainDist;
+			terrainDist  = trajectoryTerrainRaycast.raycastToTerrain(srv);
+			if (terrainDist < 1000.0) {
+//				srv.transform.position = srv.transform.position - new Vector3(0, (float)terrainDist,0);
+			}
+
 			if ( (dp.TerrainHeight > 1000000.0) || (dp.TerrainHeight < -1000000.0) ) {
 				Debug.Log("ERROR: dp.TerrainHeight out of bounds! index:"+i+" dp.TerrainHeight "+dp.TerrainHeight);
 				continue;
 			}
 			Vector3 pos = applyDisplayShiftScale(myRoute, new Vector3(dp.Latitude, (float) (dp.Altitude +(dp.TerrainHeight)), dp.Longitude));
-			indicators.Add(new trajectoryIndicator(dp, pos, prev, trajectoryColor, lineWidth, indicatorPointObject, pointContainer, lineContainer));
+*/
+
+
+			Vector3 pos = applyDisplayShiftScale(myRoute, new Vector3(dp.Latitude, 0.0f , dp.Longitude));
+
+			double terrainDist;
+			terrainDist  = - trajectoryTerrainRaycast.raycastToTerrain(pos);
+			if (terrainDist < -50.0) terrainDist = -50.0;
+
+			float terrainHeight = (applyDisplayScaleReverse(myRoute, new Vector3(0.0f, (float) terrainDist, 0.0f))).y;
+
+
+			pos = pos + applyDisplayScale(myRoute, new Vector3(0.0f, dp.Altitude, 0.0f)) + new Vector3(0.0f, (float) terrainDist, 0.0f);
+
+//			Debug.Log("terrainDist:"+terrainDist+" alt:"+alt+" (dp.Altitude:"+dp.Altitude+")" );
+
+
+			indicators.Add(new trajectoryIndicator(dp, terrainHeight, pos, prev, trajectoryColor, lineWidth, indicatorPointObject, pointContainer, lineContainer));
 			prev = pos;
 		}
 
@@ -516,12 +547,14 @@ public class Trajectory : MonoBehaviour {
 
 		//move & scale SRV - TODO: check flying & change to ship
 		if (indexNow > -1) {
-			srv.transform.position = applyDisplayShiftScale(myRoute, trajectoryIndicator.positionNow(indicators[indexNow]));
 			srv.transform.eulerAngles = new Vector3(0,  trajectoryIndicator.headingNow(indicators[indexNow]), 0);
+			srv.transform.position = applyDisplayShiftScale(myRoute, trajectoryIndicator.positionNow(indicators[indexNow]));
 		}
+
 		float srvCamDist = (srv.transform.position - Camera.main.transform.position).magnitude;
 		float srvScaleOrig = 0.004f;
 		srv.transform.localScale = new Vector3(srvScaleOrig*srvCamDist, srvScaleOrig*srvCamDist, srvScaleOrig*srvCamDist);
+
 
 
 		Renderer[] srvParts = srv.GetComponentsInChildren<Renderer>();

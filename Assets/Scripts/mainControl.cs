@@ -32,6 +32,8 @@ public class mainControl : MonoBehaviour {
 
 	public GameObject trajectoryPrefabObject;
 
+	[Range(0.0f, 1.0f)]
+	public float brightnessDim=0.5f;
 	[Range(1, 10000)]
 	public int lineTailLength=200;
 	public bool isTailSeconds=true;
@@ -94,6 +96,7 @@ public class mainControl : MonoBehaviour {
 
 	void Awake() {
 		ss = (Screenshot) FindObjectOfType(typeof(Screenshot));
+		System.IO.Directory.CreateDirectory("screenshots/");
 	}
 
 	Trajectory statusTrajectory;
